@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "recipes-homemade",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Recipes Homemade site using React, Node, Firebase, and Gatsby.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "wazimu <hesbonosoro1@gmail.com>",
   "dependencies": {
     "gatsby": "^4.2.0",
     "gatsby-firesource": "^2.0.3",
