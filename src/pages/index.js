@@ -9,6 +9,7 @@ const AllRecipes = styled.section`
 	width: 85vw;
 	margin: 0 auto;
 	max-width: 730px;
+
 	.card {
 		box-shadow: 2px 2px 6px 0px rgba(142, 142, 142, 1);
 		border: none;
@@ -19,21 +20,54 @@ const AllRecipes = styled.section`
 		padding: 1rem;
 		text-align: center;
 	}
+	.info {
+		padding: 1rem 0;
+	}
+	.info h2 {
+		font-size: 30px;
+		text-transform: capitalize;
+		margin-bottom: 10px;
+	}
+	.info h5 {
+		color: var(--darkGrey);
+		text-transform: capitalize;
+	}
+	.info p {
+		padding: 20px 0 30px 0;
+		text-align: left;
+	}
+	.link {
+		border: 1px solid black;
+		padding: 4px 8px;
+		display: inline-block;
+		color: black;
+		text-decoration: none;
+		text-transform: capitalize;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			background: black;
+			color: white;
+		}
+	}
 `;
 const IndexPage = props => {
 	return (
 		<Layout>
 			<Seo title="Home" />
-			<AllRecipes>{props.data.allRecipe.edges.map(edge => (
-				<article key={edge.node.id} className='card'>
-					<h2>
-						{edge.node.name} - <small>{edge.node.cook.name}</small>
-					</h2>
-					<div>{edge.node.summary}</div>
-					<div>{edge.node.link}</div>
-					<Link to={`/recipe/${edge.node.id}`}>Comment</Link>
-				</article>
-			))}</AllRecipes>
+			<AllRecipes>
+				{props.data.allRecipe.edges.map(edge => (
+					<article key={edge.node.id} className="card">
+						<div className="info">
+							<h2>{edge.node.name}</h2>
+							<h5>{edge.node.cook.name}</h5>
+							<div>{edge.node.summary}</div>
+							<Link to={`/recipe/${edge.node.id}`} className="link">
+								read more
+							</Link>
+						</div>
+					</article>
+				))}
+			</AllRecipes>
 		</Layout>
 	);
 };
