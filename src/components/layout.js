@@ -26,24 +26,22 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-			<div
+			<main>{children}</main>
+			<footer
 				style={{
-					margin: `0 auto`,
-					maxWidth: 960,
-					padding: `0 1.0875rem 1.45rem`,
+					textAlign: 'center',
 				}}
 			>
-				<main>{children}</main>
-				<footer
-					style={{
-						marginTop: `2rem`,
-					}}
+				© {new Date().getFullYear()}, Built with
+				{` `}
+				<a
+					href="https://hb-wazimu.netlify.app/"
+					target="_blank"
+					rel="noopener noreferrer"
 				>
-					© {new Date().getFullYear()}, Built with
-					{` `}
-					<a href="https://www.gatsbyjs.com">Gatsby</a>
-				</footer>
-			</div>
+					Wazimu
+				</a>
+			</footer>
 		</>
 	);
 };
