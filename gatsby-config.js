@@ -9,6 +9,12 @@ module.exports = {
 	plugins: [
 		`gatsby-plugin-react-helmet`,
 		{
+			resolve: `gatsby-plugin-disqus`,
+			options: {
+				shortname: `https-recipes-homemade-hb-netlify-app.disqus.com`
+			}
+		},
+		{
 			resolve: `gatsby-plugin-remote-images`,
 			options: {
 				nodeType: 'Recipe',
