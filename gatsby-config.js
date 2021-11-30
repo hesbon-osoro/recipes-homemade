@@ -7,6 +7,13 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
+		{
+			resolve: `gatsby-plugin-remote-images`,
+			options: {
+				nodeType: 'Recipe',
+				imagePath: 'imageUrl',
+			},
+		},
 		`gatsby-plugin-image`,
 		{
 			resolve: `gatsby-source-filesystem`,
