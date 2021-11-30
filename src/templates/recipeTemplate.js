@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import Image from 'gatsby-image';
 
 const RecipeItemWrapper = styled.section`
 	width: 100vw;
@@ -41,23 +42,20 @@ const RecipeItemWrapper = styled.section`
 		margin: 0.95em 1.2em;
 		padding: 0.2em;
 	}
-	img {
-		max-width: 400px;
-	}
 `;
-const RecipeTemplate = ({ pageContext }) => {
+const RecipeTemplate = ({ data }) => {
 	return (
 		<RecipeItemWrapper>
 			<Link to="/" className="link">
 				back to all recipes
 			</Link>
 			<div className="info">
-				<h1>{pageContext.name}</h1>
-				<h4>{pageContext.cook.name}</h4>
-				<img src={pageContext.imageUrl} alt="recipe image" />
-				<p>{pageContext.summary}</p>
+				<h1>{data.recipe.name}</h1>
+				<h4>{data.recipe.cook.name}</h4>
+				<Image fluid={data.recipe.localImage.childImageSharp.fluid} />
+				<p>{data.recipe.summary}</p>
 				<a
-					href={pageContext.link}
+					href={data.recipe.link}
 					target="_blank"
 					rel="noopener noreferrer"
 					className="link"
@@ -69,4 +67,25 @@ const RecipeTemplate = ({ pageContext }) => {
 	);
 };
 
+export const query = graphql`
+	query RecipeQuery($recipeId: String!) {
+		recipe(id: { eq: $recipeId }) {
+			id
+			name
+			summary
+			link
+			localImage {
+				childImageSharp {
+					fluid {
+						...GatsbyImageSharpFluid_withWebp
+					}
+				}
+			}
+			cook {
+				name
+				id
+			}
+		}
+	}
+`;
 export default RecipeTemplate;
