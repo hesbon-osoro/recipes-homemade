@@ -11,7 +11,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-disqus`,
 			options: {
-				shortname: `https-recipes-homemade-hb-netlify-app.disqus.com`
+				shortname: `https-recipes-homemade-hb-netlify-app`
 			}
 		},
 		{
