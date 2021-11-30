@@ -82,6 +82,7 @@ const AllRecipes = styled.section`
 	}
 `;
 const IndexPage = props => {
+	const summarySlice = str => str.slice(0, 100) + '...';
 	return (
 		<Layout>
 			<Seo title="Home" />
@@ -94,7 +95,7 @@ const IndexPage = props => {
 						<div className="info">
 							<h2>{edge.node.name}</h2>
 							<h5>{edge.node.cook.name}</h5>
-							<div>{edge.node.summary}</div>
+							<p>{edge.node.summary && summarySlice(edge.node.summary)}</p>
 							<Link to={`/recipe/${edge.node.id}`} className="link">
 								read more
 							</Link>
