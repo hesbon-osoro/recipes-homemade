@@ -64,7 +64,7 @@ const RecipeTemplate = ({ data }) => {
 				<p>{data.recipe.summary}</p>
 				{data.recipe.link && (
 					<a
-						href={data.rexipe.link}
+						href={data.recipe.link}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="link"
