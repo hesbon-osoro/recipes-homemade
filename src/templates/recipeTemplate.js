@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
+import { Disqus } from 'gatsby-plugin-disqus';
 
 const RecipeItemWrapper = styled.section`
 	width: 100vw;
@@ -44,6 +45,13 @@ const RecipeItemWrapper = styled.section`
 	}
 `;
 const RecipeTemplate = ({ data }) => {
+	const url = 'https://recipes-homemade-hb.netlify.app/recipe/';
+	const blogIdentity = data.recipe.id;
+	let disqusConfig = {
+		url: `${url}${blogIdentity}`,
+		identifier: blogIdentity,
+		title: data.recipe.name,
+	};
 	return (
 		<RecipeItemWrapper>
 			<Link to="/" className="link">
@@ -65,6 +73,7 @@ const RecipeTemplate = ({ data }) => {
 					</a>
 				)}
 			</div>
+			<Disqus config={disqusConfig} />
 		</RecipeItemWrapper>
 	);
 };
