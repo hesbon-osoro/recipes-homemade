@@ -8,19 +8,6 @@ exports.createPages = ({ graphql, actions }) => {
 				edges {
 					node {
 						id
-						link
-						name
-						summary
-						localImage {
-							childImageSharp {
-								fluid {
-									...GatsbyImageSharpFluid_withWebp
-								}
-							}
-						}
-						cook {
-							name
-						}
 					}
 				}
 			}
@@ -33,7 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
 			createPage({
 				path: `/recipe/${recipe.node.id}`,
 				component: recipeTemplate,
-				context: recipe.node,
+				context: { recipeId: recipe.node.id },
 			});
 		});
 	});
