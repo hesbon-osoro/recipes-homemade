@@ -11,6 +11,13 @@ exports.createPages = ({ graphql, actions }) => {
 						link
 						name
 						summary
+						localImage {
+							childImageSharp {
+								fluid {
+									...GatsbyImageSharpFluid_withWebp
+								}
+							}
+						}
 						cook {
 							name
 						}
