@@ -7,3 +7,4 @@
 - Node
 - Gatsby
 - GraphQL
+- Disqus
