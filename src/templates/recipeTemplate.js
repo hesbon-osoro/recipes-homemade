@@ -54,14 +54,16 @@ const RecipeTemplate = ({ data }) => {
 				<h4>{data.recipe.cook.name}</h4>
 				<Image fluid={data.recipe.localImage.childImageSharp.fluid} />
 				<p>{data.recipe.summary}</p>
-				<a
-					href={data.recipe.link}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="link"
-				>
-					Youtube
-				</a>
+				{data.recipe.link && (
+					<a
+						href={data.rexipe.link}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="link"
+					>
+						Youtube
+					</a>
+				)}
 			</div>
 		</RecipeItemWrapper>
 	);
