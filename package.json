@@ -7,7 +7,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^10.0.0",
-    "gatsby": "^4.2.0",
+    "gatsby": "4.2.0",
     "gatsby-firesource": "^2.0.3",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-disqus": "^1.2.3",
